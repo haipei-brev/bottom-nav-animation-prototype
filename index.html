@@ -38,7 +38,8 @@
     .nav-version {
       --variant-width: min(402px, 100%);
       --context-bg: #ffffff;
-      --screen-scroll-duration: 28s;
+      --screen-scroll-duration: 34s;
+      --screen-start-offset: 500px;
       --screen-end-offset: 95px;
       width: 100%;
       display: flex;
@@ -50,7 +51,7 @@
     .coffee-version {
       --variant-width: min(375px, 100%);
       --context-bg: #111111;
-      --screen-scroll-duration: 20s;
+      --screen-scroll-duration: 26s;
       --screen-end-offset: 95px;
     }
 
@@ -125,7 +126,7 @@
 
     @keyframes screenAutoScroll {
       0% {
-        transform: translateY(0);
+        transform: translateY(calc(var(--screen-start-offset) * -1));
       }
 
       92% {
@@ -313,7 +314,7 @@
 
     .cooking-nav .nav-tab.is-selected {
       color: #161616;
-      background: rgba(196, 196, 194, 0.56);
+      background: rgba(154, 154, 154, 0.3);
     }
 
     .coffee-nav {
@@ -343,7 +344,7 @@
 
     .coffee-nav .nav-tab.is-selected {
       color: #ffffff;
-      background: #3a3a3a;
+      background: rgba(114, 114, 114, 0.3);
     }
 
     .cart-badge {
