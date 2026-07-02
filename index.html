@@ -63,6 +63,15 @@
       gap: 12px;
     }
 
+    .instruction-text {
+      width: var(--variant-width);
+      margin: 0 0 12px;
+      color: #9A9A9A;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.25;
+    }
+
     .version-title {
       margin: 0;
       font-size: 12px;
@@ -303,9 +312,6 @@
     .cooking-nav .nav-main {
       background: rgba(255, 255, 255, 0.65);
       border: 1px solid rgba(219, 219, 219, 0.85);
-      box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.85),
-        inset 0 -1px 2px rgba(58, 56, 53, 0.1);
     }
 
     .cooking-nav .nav-tab {
@@ -333,9 +339,6 @@
     .coffee-nav .nav-main {
       background: rgba(17, 17, 17, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow:
-        inset 0 1px 1px rgba(255, 255, 255, 0.08),
-        inset 0 -1px 1px rgba(0, 0, 0, 0.45);
     }
 
     .coffee-nav .nav-tab {
@@ -404,6 +407,8 @@
 
   <main class="nav-board" aria-label="Bottom nav versions">
     <section class="nav-version cooking-version">
+      <p class="instruction-text">click on nav bar to see animation</p>
+
       <div class="variant-toolbar">
         <p class="version-title">Cooking</p>
         <button class="show-bg-button" type="button" aria-pressed="false">show BG</button>
