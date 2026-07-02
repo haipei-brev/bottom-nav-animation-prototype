@@ -211,13 +211,47 @@
     }
 
     .coffee-stage {
-      width: min(402px, 100%);
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
       height: 95px;
       background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, #111111 100%);
       display: flex;
       align-items: flex-start;
       justify-content: center;
       padding-top: 10px;
+      pointer-events: none;
+    }
+
+    .coffee-context {
+      width: min(375px, 100%);
+      height: 640px;
+      position: relative;
+      overflow: hidden;
+      background: #111111;
+    }
+
+    .coffee-scroll {
+      position: absolute;
+      inset: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: #5b5b5b #111111;
+    }
+
+    .coffee-screen-background {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .coffee-stage .bottom-nav {
+      width: calc(100% - 42px);
+      pointer-events: auto;
     }
 
     .coffee-nav {
@@ -336,30 +370,36 @@
 
     <section class="nav-version">
       <p class="version-title">coffee</p>
-      <div class="coffee-stage">
-        <button class="bottom-nav coffee-nav" type="button" aria-label="Toggle coffee cart button" aria-pressed="false">
-          <span class="nav-main">
-            <span class="nav-tab is-selected">
-              <svg class="nav-icon" aria-hidden="true"><use href="#icon-coffee-appliance"></use></svg>
-              <span class="nav-label">Appliance</span>
-            </span>
-            <span class="nav-tab">
-              <svg class="nav-icon" aria-hidden="true"><use href="#icon-coffee-bean"></use></svg>
-              <span class="nav-label">Coffee</span>
-            </span>
-            <span class="nav-tab">
-              <svg class="nav-icon" aria-hidden="true"><use href="#icon-settings"></use></svg>
-              <span class="nav-label">Settings</span>
-            </span>
-          </span>
+      <div class="coffee-context">
+        <div class="coffee-scroll" aria-label="Scrollable coffee screen context">
+          <img class="coffee-screen-background" src="assets/coffee-screen-background.png" alt="">
+        </div>
 
-          <span class="active-slot" aria-hidden="true">
-            <span class="active-button">
-              <svg class="active-icon" aria-hidden="true"><use href="#icon-cart"></use></svg>
-              <span class="cart-badge">9+</span>
+        <div class="coffee-stage">
+          <button class="bottom-nav coffee-nav" type="button" aria-label="Toggle coffee cart button" aria-pressed="false">
+            <span class="nav-main">
+              <span class="nav-tab is-selected">
+                <svg class="nav-icon" aria-hidden="true"><use href="#icon-coffee-appliance"></use></svg>
+                <span class="nav-label">Appliance</span>
+              </span>
+              <span class="nav-tab">
+                <svg class="nav-icon" aria-hidden="true"><use href="#icon-coffee-bean"></use></svg>
+                <span class="nav-label">Coffee</span>
+              </span>
+              <span class="nav-tab">
+                <svg class="nav-icon" aria-hidden="true"><use href="#icon-settings"></use></svg>
+                <span class="nav-label">Settings</span>
+              </span>
             </span>
-          </span>
-        </button>
+
+            <span class="active-slot" aria-hidden="true">
+              <span class="active-button">
+                <svg class="active-icon" aria-hidden="true"><use href="#icon-cart"></use></svg>
+                <span class="cart-badge">9+</span>
+              </span>
+            </span>
+          </button>
+        </div>
       </div>
     </section>
   </main>
