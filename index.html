@@ -32,7 +32,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 34px;
+      gap: 54px;
     }
 
     .nav-version {
@@ -398,10 +398,10 @@
   </svg>
 
   <main class="nav-board" aria-label="Bottom nav versions">
-    <section class="nav-version cooking-version is-bg-visible">
+    <section class="nav-version cooking-version">
       <div class="variant-toolbar">
-        <p class="version-title">cooking</p>
-        <button class="show-bg-button" type="button">show BG</button>
+        <p class="version-title">Cooking</p>
+        <button class="show-bg-button" type="button" aria-pressed="false">show BG</button>
       </div>
 
       <div class="nav-context cooking-context">
@@ -436,10 +436,10 @@
       </div>
     </section>
 
-    <section class="nav-version coffee-version is-bg-visible">
+    <section class="nav-version coffee-version">
       <div class="variant-toolbar">
-        <p class="version-title">coffee</p>
-        <button class="show-bg-button" type="button">show BG</button>
+        <p class="version-title">Coffee</p>
+        <button class="show-bg-button" type="button" aria-pressed="false">show BG</button>
       </div>
 
       <div class="nav-context coffee-context">
@@ -493,8 +493,8 @@
     }
 
     /*
-      The "show BG" buttons restart the background scroll from the top.
-      This is helpful when reviewing the nav in context.
+      The "show BG" buttons turn each screen background on or off.
+      When a background turns on, its scroll starts again from the top.
     */
 
     var showBgButtons = document.querySelectorAll(".show-bg-button");
@@ -504,11 +504,15 @@
         var variant = this.closest(".nav-version");
         var backgroundImage = variant.querySelector(".screen-background");
 
-        variant.classList.add("is-bg-visible");
+        var backgroundIsVisible = variant.classList.toggle("is-bg-visible");
 
-        backgroundImage.style.animation = "none";
-        backgroundImage.offsetHeight;
-        backgroundImage.style.animation = "";
+        this.setAttribute("aria-pressed", backgroundIsVisible);
+
+        if (backgroundIsVisible) {
+          backgroundImage.style.animation = "none";
+          backgroundImage.offsetHeight;
+          backgroundImage.style.animation = "";
+        }
       });
     }
   </script>
